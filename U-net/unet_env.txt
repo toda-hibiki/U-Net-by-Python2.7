@@ -1,0 +1,54 @@
+U-Net環境構築 戸田響生
+
+Ubuntu:16.04
+
+nvidia-driver  
+https://qiita.com/isishizuka/items/5420af0e8f6fca7aa1da
+使用GPU:GTX1050ti
+
+CUDAとCUDNN
+CUDA:8.0
+CUDNN:6.0
+https://qiita.com/JeJeNeNo/items/05e148a325192004e2cd
+
+その他環境
+anacondaでpython2.7の仮想環境を作成
+$conda create -n 環境名 python=2.7
+起動と終了
+$source activate 環境名
+$source deactivate
+
+仮想環境内で追加で環境を整える
+tensorflow:最新をダウンロードして，CPUは使用しないため，tensorboardなどは残してtensorflowはアンインストール　
+tensorflow-gpu:1.4.1   GPUを使用するため
+keras:2.0.2
+↑優先
+
+以下バージョンを指定してインストール
+numpy:最新
+matplotlib:最新
+opencv-python:最新
+pillow:最新
+h5py:2.8.0
+scikit-learn:0.19.2
+chainer:最新
+
+よく使うコマンド
+pipでインストール
+$pip install パッケージ名
+$pip install パッケージ名==バージョン名
+pipでアンインストール
+$pip uninstall パッケージ名
+pipでインストールされたパッケージを確認
+$pip list
+pipでインストールされたパッケージを指定して確認
+$dpkg -l | grep "検索したいパッケージ"
+opencvのバージョン確認
+$pkg-config --modversion opencv
+CUDAバージョン確認
+$nvcc -V
+GPUとの疎通確認
+$nvidia-smi
+
+
+ 
