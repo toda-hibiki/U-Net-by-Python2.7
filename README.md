@@ -7,7 +7,8 @@ Overview
 を応用して医用画像のセグメンテーションを行います。
 医用画像に向いている点としては、局所的特徴と全体の位置情報を同時に学習できる点と、パッチ処理により、少ない画像枚数でも高精度なセグメンテーションができる点にあります。実装に苦労をしたので、手順等詳しく説明します。
 
-- Environment
+Environment
+-
 OS:ubuntu16.04</br>
 Python:2.7</br>
 GPU:GTX1050ti(学習に1日ぐらいかかります、できれば複数枚使いたいです)</br>
@@ -19,7 +20,7 @@ $conda create -n 環境名 python=2.7</br>
 $conda activate 環境名</br>
 $conda deactivate</br>
 
-- CUDAとCUDNN
+- CUDAとCUDNNのインストール
 CUDA:8.0
 CUDNN:6.0
 参考: https://qiita.com/JeJeNeNo/items/05e148a325192004e2cd
