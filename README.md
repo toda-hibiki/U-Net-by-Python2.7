@@ -19,6 +19,11 @@ $conda create -n 環境名 python=2.7</br>
 $conda activate 環境名</br>
 $conda deactivate</br>
 
+- CUDAとCUDNN
+CUDA:8.0
+CUDNN:6.0
+参考: https://qiita.com/JeJeNeNo/items/05e148a325192004e2cd
+
 - 仮想環境に追加(GPUを使用するため)</br>
 tensorflow:最新版をインストール，CPUは使用しないため，tensorboardは残してtensorflowはアンインストール</br>
 tensorflow-gpu:1.4.1をインストール</br>
@@ -45,3 +50,13 @@ Procedure
 
 - エラーが出た場合はインストールしたパッケージのバージョンがあっているか確かめてください</br>
   経験上、殆どのエラーがバージョンの事に関するエラーでした。
+  
+- メモリエラーについて
+  自分の環境で実行した際に，メモリエラーが出ることがありました。
+  GPUのメモリ不足らしいので，Numpyに関するプログラムを変更します。
+  
+  ./lib/help_function.pyの中の以下の部分を変更する。
+  - 変更前
+  new_masks = np.empty((masks.shape[0],im_h*im_w,2))
+  - 変更後
+  new_masks = np.memmap('tnp.dat',dtype='float32',mode='w+',shape=(masks.shape[0],im_h*im_w,2))
