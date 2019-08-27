@@ -61,7 +61,7 @@ Procedure
   new_masks = np.empty((masks.shape[0],im_h*im_w,2))
   - 変更後
   new_masks = np.memmap('tnp.dat',dtype='float32',mode='w+',shape=(masks.shape[0],im_h*im_w,2))
-    - 変更前
+  - 変更前
   pred_images = np.empty((pred.shape[0],pred.shape[1]))
   - 変更後
   pred_images = np.memmap('tnp.dat',dtype='float32',mode='w+',shape=(pred.shape[0],pred.shape[1]))
