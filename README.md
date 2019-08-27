@@ -54,10 +54,14 @@ Procedure
   
 - メモリエラーについて
   自分の環境で実行した際に，メモリエラーが出ることがありました。
-  GPUのメモリ不足らしいので，Numpyに関するプログラムを変更します。
+  GPUのメモリ不足らしいので，Numpyに関するプログラムを変更し、CPUを使用します。
   
   ./lib/help_function.pyの中の以下の部分を変更する。
   - 変更前
   new_masks = np.empty((masks.shape[0],im_h*im_w,2))
   - 変更後
   new_masks = np.memmap('tnp.dat',dtype='float32',mode='w+',shape=(masks.shape[0],im_h*im_w,2))
+    - 変更前
+  pred_images = np.empty((pred.shape[0],pred.shape[1]))
+  - 変更後
+  pred_images = np.memmap('tnp.dat',dtype='float32',mode='w+',shape=(pred.shape[0],pred.shape[1]))
